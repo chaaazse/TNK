@@ -1,74 +1,96 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+// Authored by: Jamarcus JanGavril C. Mariano
+// Company: Schlaf Shön
+// Project: Tabangi Na Ko
+// [TNK-7] Home Screen
+// Description: As a user, I want to be able to choose to view Housekeeper candidates and/or Household offers.
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React from 'react';
+import { Text, View, Image, StyleSheet} from "react-native";
+import { Bell, MoveRight } from 'lucide-react-native';
 
-export default function HomeScreen() {
+const styles = StyleSheet.create ({
+  container: {
+    paddingBottom: 10,
+    backgroundColor: '#F7EDE1',
+    marginLeft: 20,
+    width: '90.3%',
+    borderRadius: 11,
+  },
+  imageStyle: {
+    width: 325, 
+    height: 200,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderColor: 'black',
+    borderWidth: 1
+  },
+  rightSideText: {
+    fontWeight: 'bold',
+  }
+});
+
+export default function Index() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View className="flex-1 bg-primary">
+      <View>
+        <Bell 
+          color={'white'}
+          size={25}
+          style={{
+            marginLeft: 300,
+            marginTop: 30
+          }} 
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      </View>
+      <View>
+        <Text className="text-5xl text-white ml-5 font-bold">Connect and</Text>
+        <Text className="text-5xl text-white ml-5 font-bold">Stay Clean!</Text>
+      </View>
+
+      <View>
+        <Text className="text-2xl text-white ml-5 mt-5">Housekeepers</Text>
+        <View style={styles.container}>
+          <Image source={require('@/assets/images/housekeeper_image.png')} style={styles.imageStyle}/>
+          <View className="flex items-end">
+            <Text className="font-bold pt-1 pr-2">
+              View Candidates
+              <View className="flex items-end">
+                <MoveRight 
+                  color={'black'}
+                  size={12}
+                  style={{
+                    marginLeft: 2
+                  }} 
+                />
+              </View>
+            </Text>
+          </View>
+          
+        </View>
+      </View> 
+        
+      
+      <View>
+        <Text className="text-2xl text-white ml-5 mt-3">Households</Text>
+        <View style={styles.container}>
+          <Image source={require('@/assets/images/household_image.png')} style={styles.imageStyle}/>
+          <View className="flex items-end">
+            <Text className="font-bold pt-1 pr-2">
+              View Offers
+              <View className="flex items-end">
+                <MoveRight 
+                  color={'black'}
+                  size={12}
+                  style={{
+                    marginLeft: 2
+                  }} 
+                />
+              </View>
+            </Text>
+          </View>
+        </View>
+      </View>
+      
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
