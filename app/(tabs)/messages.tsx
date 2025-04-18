@@ -134,6 +134,7 @@ const Messages = () => {
                     </View>
                 </View>       
             </View>
+            {/* end of recent chats container */}
 
         </View>
     )
