@@ -4,27 +4,29 @@
 // [TNK-5] Login Screen
 // Description: As a user, I want to login to an existing account.
 
-import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, {useState} from 'react';
+import { Text, TextInput, View, StyleSheet, Image, Alert } from 'react-native';
 import { useRouter } from 'expo-router'
 
 const styles = StyleSheet.create ({
+    welcomeContainer: {
+        justifyContent: 'center',
+        textAlign: 'center',
+        paddingHorizontal: 24,
+    },
     imageStyle: {
         width: '100%',
         height: '35%',
-        paddingBottom: 0,
-        marginBottom: 0,
     },
     welcomeTextStyle: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 32,
-        paddingLeft: 70,
-        marginTop: -50,
+        marginLeft: 20,
     },
     containerStyle: {
         backgroundColor: '#F7EDE1',
-        marginTop: 60,
+        marginTop: -30,
         paddingBottom: 455,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
@@ -38,7 +40,7 @@ const styles = StyleSheet.create ({
     },
     emptyContainerStyle: {
         backgroundColor: '#D9D9D9',
-        paddingTop: 35,
+        paddingTop: 10,
         marginLeft: 30,
         marginRight: 30,
         borderRadius: 15,
@@ -131,26 +133,56 @@ const styles = StyleSheet.create ({
     },
 });
 
-const Login = () => {
+type LoginProps = {
+    onLogin: (email: string, password: string) => void;
+};
+
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const router = useRouter();
+
+    const handleLogin = () => {
+        if(!email || !password){
+            Alert.alert('Please enter email and password');
+            return;
+        }
+        onLogin(email,password);
+    };
+
     return (
         <View className="flex-1 bg-primary">
-            <Image source={require('@/assets/images/TNK_logo.png')} style={styles.imageStyle} />
         
-            <Text style={styles.welcomeTextStyle}>
-                Welcome back to TNK
-            </Text>
+            <View style={styles.welcomeContainer}>
+                <Image source={require('@/assets/images/TNK_logo.png')} style={styles.imageStyle} />
+                <Text style={styles.welcomeTextStyle}>
+                    Welcome back to TNK
+                </Text>
+            </View>
 
             <View style={styles.containerStyle}>
                 <View>
                     <Text style={styles.textfieldsStyle}>
                         Email
                     </Text>
-                    <View style={styles.emptyContainerStyle}></View>
+                    <TextInput
+                        placeholder="Email"
+                        value={email}
+                        onChangeText={setEmail}
+                        style={styles.emptyContainerStyle}
+                        keyboardType='email-address'
+                        autoCapitalize='none'
+                    />
                     <Text style={styles.textfieldsStyle}>
                         Password
                     </Text>
-                    <View style={styles.emptyContainerStyle}></View>
+                    <TextInput
+                        placeholder="Password"
+                        value={password}
+                        onChangeText={setPassword}
+                        style={styles.emptyContainerStyle}
+                        secureTextEntry
+                    />
                 </View>
                 <Text style={styles.forgotTextStyle}>
                     Forgot Password?
@@ -201,5 +233,6 @@ const Login = () => {
         </View>
     )
 }
+
 
 export default Login

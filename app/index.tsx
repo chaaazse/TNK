@@ -8,6 +8,7 @@ import { Text, View, Image, StyleSheet} from "react-native";
 import React from 'react';
 import { useRouter } from 'expo-router'
 
+
 const styles = StyleSheet.create ({
     imageStyle: {
         width: '100%',

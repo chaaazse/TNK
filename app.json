@@ -16,7 +16,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/TNK_logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.TNK"
     },
     "web": {
       "bundler": "metro",
