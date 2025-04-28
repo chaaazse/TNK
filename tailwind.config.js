@@ -8,6 +8,8 @@ module.exports = {
         primary: '#020D19',
         secondary: '#F7EDE1',
         tertiary: '#ffc200 ',
+        messageBtn: '#020D19',
+        impBtn: '#A25D67',
       }
     },
   },
