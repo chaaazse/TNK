@@ -1,3 +1,9 @@
+// Authored by: Jamarcus JanGavril C. Mariano
+// Company: Schlaf Shön
+// Project: Tabangi Na Ko
+// [TNK-9] Message Tab Screen
+// Description: As a user, I want to be able to message Housekeeper candidates regarding their service and/or Household owners regarding their offers for further clarification.
+
 import {View, Text, StyleSheet, Image} from 'react-native'
 import React from 'react'
 import { Bell, Search} from 'lucide-react-native';
@@ -27,7 +33,7 @@ const styles = StyleSheet.create ({
     reChatContainer: {
         backgroundColor: '#F7EDE1',
         height: '12%',
-        width: '87%',
+        width: '90%',
         marginLeft: 20,
         marginTop: 10,
         borderRadius: 10,

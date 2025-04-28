@@ -1,7 +1,7 @@
 // Authored by: Jamarcus JanGavril C. Mariano
 // Company: Schlaf Shön
 // Project: Tabangi Na Ko
-// [TNK-7] Home Screen
+// [TNK-7] Home Tab Screen
 // Description: As a user, I want to be able to choose to view Housekeeper candidates and/or Household offers.
 
 import React from 'react';
