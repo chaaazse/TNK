@@ -16,8 +16,8 @@ const styles = StyleSheet.create ({
         flexDirection: 'column',
     },
     imageStyle: {
-        width: 100,
-        height: 100,
+        width: '31%',
+        height: 128,
         marginLeft: 10,
     },
     textStyle: {
@@ -25,11 +25,11 @@ const styles = StyleSheet.create ({
     },
     textHeaderStyle: {
         color: 'white',
-        fontSize: 40,
+        fontSize: 35,
         fontWeight: 'bold'
     },
     topContentStyle: {
-        marginLeft: 20,
+        marginLeft: 15,
     },
     preferenceStyle: {
         paddingTop: 7,
@@ -51,15 +51,13 @@ const styles = StyleSheet.create ({
         marginTop: 20,
         flexDirection: 'row',
         width: '100%',
-        height: 170,
-        justifyContent: 'space-evenly'
+        height: 225,
+        justifyContent: 'space-evenly',
     },
     leftBodyContent: {
         paddingLeft: 10,
-        paddingRight: 10,
     },
     rightBodyContent: {
-        paddingLeft: 10,
         paddingRight: 10,
     },
     leftBodyContentTextStyle: {
@@ -70,8 +68,9 @@ const styles = StyleSheet.create ({
     },
     rightBodyContentTextStyle: {
         color: 'white',
-        padding: 7,
-        fontSize: 20,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontSize: 15,
         fontWeight: '500',
     },
     editBoxStyle: {
@@ -87,11 +86,12 @@ const styles = StyleSheet.create ({
         borderWidth: 2,
         borderColor: 'white',
         width: 250,
-        height: 200,
-        marginLeft: 50,
+        height: 250,
+        alignSelf: 'center'
+        
     },
     logoutBtnContainer: {
-        marginTop: 70,
+        marginTop: '5%',
         marginLeft: 50,
         marginRight: 50,
         padding: 10,
@@ -114,8 +114,9 @@ const Profile = () => {
                     color={'white'}
                     size={25}
                     style={{
-                        marginLeft: 300,
-                        marginTop: 30
+                        marginTop: 25,
+                        marginRight: 25,
+                        alignSelf: 'flex-end'
                     }} 
                 />
             </View>
@@ -136,6 +137,7 @@ const Profile = () => {
                                     size={15}
                                     style={{
                                         marginRight: 2,
+                                        alignSelf: 'center'
                                     }}
                                 />
                                 <Text style={styles.textStyle}>PREFERENCES</Text>
@@ -148,8 +150,8 @@ const Profile = () => {
                             <Text style={styles.textStyle}>Reputation: </Text>
                                 <View style={styles.rating}>
                                     <View style={styles.starEmpty}>
-                                        { Array.from({ length: 5 }, () => (
-                                            <Star fill="#7B7B7B" size={13} strokeWidth={0} />
+                                        { Array.from({ length: 5 }, (_, index) => (
+                                            <Star key={index} fill="#7B7B7B" size={13} strokeWidth={0} />
                                         ))}
                                     </View>
                                     

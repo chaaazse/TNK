@@ -4,9 +4,11 @@
 // [TNK-5] Login Screen
 // Description: As a user, I want to login to an existing account.
 
-import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react'
+import { Text, View, StyleSheet, Image, TextInput } from 'react-native';
 import { useRouter } from 'expo-router'
+import { auth } from '../FirebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const styles = StyleSheet.create ({
     imageStyle: {
@@ -38,7 +40,8 @@ const styles = StyleSheet.create ({
     },
     emptyContainerStyle: {
         backgroundColor: '#D9D9D9',
-        paddingTop: 35,
+        padding: 5,
+        paddingRight: 0,
         marginLeft: 30,
         marginRight: 30,
         borderRadius: 15,
@@ -56,9 +59,9 @@ const styles = StyleSheet.create ({
         fontSize: 25,
         fontWeight: 'bold',
         backgroundColor: '#FFC200',
-        paddingTop: 10,
-        paddingBottom: 15,
-        paddingLeft: 125,
+        height: '10%',
+        textAlignVertical: 'center',
+        textAlign: 'center',
         marginTop: 30,
         marginLeft: 30,
         marginRight: 30,
@@ -70,10 +73,10 @@ const styles = StyleSheet.create ({
         justifyContent: 'center',
         marginTop: 25,
         marginLeft: 35,
-        width: '80%',
+        width: '83%',
     },
     horizontalLine: {
-        height: 1,
+        height: 1.5,
         backgroundColor: 'black',
         flex: 1,
         marginVertical: 10,
@@ -89,6 +92,7 @@ const styles = StyleSheet.create ({
         justifyContent: 'space-evenly',
         marginTop: 20,
         padding: 10,
+        marginBottom: 15
     },
     buttonContainer: {
         backgroundColor: 'black',
@@ -110,14 +114,14 @@ const styles = StyleSheet.create ({
     },
     buttonRowContainer: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     accountRemContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 50,
+        
     },
     accountText:{
         color: 'black',
@@ -132,6 +136,19 @@ const styles = StyleSheet.create ({
 });
 
 const Login = () => {
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+
+    // const logIn = async () => {
+    //     try {
+    //         const user = await signInWithEmailAndPassword(auth, email, password)
+    //         if (user) router.replace('/(tabs)');
+    //     } catch (error: any) {
+    //         console.log(error)
+    //         alert('Sign in failed: ' + error.message);
+    //     }
+    // }
+
     const router = useRouter();
     return (
         <View className="flex-1 bg-primary">
@@ -146,17 +163,29 @@ const Login = () => {
                     <Text style={styles.textfieldsStyle}>
                         Email
                     </Text>
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your email" 
+                            // value={email} onChangeText={setEmail} 
+                        />
+                    </View>
                     <Text style={styles.textfieldsStyle}>
                         Password
                     </Text>
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your password" 
+                            // value={password} onChangeText={setPassword} secureTextEntry 
+                        />
+                    </View>
                 </View>
                 <Text style={styles.forgotTextStyle}>
                     Forgot Password?
                 </Text>
 
-                <Text onPress={() => router.push('/(tabs)')} style={styles.loginButtonStyle}>
+                <Text 
+                    // onPress={logIn} 
+                    style={styles.loginButtonStyle}
+                    onPress={() => router.push('/(tabs)')}
+                >
                     Login
                 </Text>
 

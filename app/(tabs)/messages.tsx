@@ -25,8 +25,7 @@ const styles = StyleSheet.create ({
         flexDirection: 'column',
     },
     searchMsg: {
-        marginTop: 13,
-        marginLeft: 15,
+        alignSelf: 'center',
         fontSize: 18,
         color: 'gray'
     },
@@ -73,8 +72,9 @@ const Messages = () => {
                     color={'white'}
                     size={25}
                     style={{
-                        marginLeft: 300,
-                        marginTop: 30
+                        marginTop: 25,
+                        marginRight: 25,
+                        alignSelf: 'flex-end'
                     }} 
                 />
             </View>
@@ -86,8 +86,7 @@ const Messages = () => {
                         color={'gray'}
                         size={25}
                         style={{
-                            marginTop: 8,
-                            marginLeft: 10,
+                            margin: '3%'
                         }} 
                     />
                     <Text style={styles.searchMsg}>Search Messages</Text>
@@ -120,7 +119,7 @@ const Messages = () => {
                         <Text className='text-2xl font-bold ml-3 mt-3'>Sarah Ahai</Text>
 
                         <View style={styles.row}>
-                            <Text style={styles.unreadTextStyle}>Hey, I noticed you have lots...</Text>
+                            <Text style={styles.unreadTextStyle}>Hey, I noticed you have ...</Text>
                             <Text style={styles.unreadTimeStyle} className='ml-3 mt-2'>5:45 PM</Text>
                         </View>
                     </View>
@@ -141,6 +140,9 @@ const Messages = () => {
                 </View>       
             </View>
             {/* end of recent chats container */}
+                    
+
+
 
         </View>
     )

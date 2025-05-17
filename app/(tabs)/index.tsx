@@ -17,7 +17,7 @@ const styles = StyleSheet.create ({
     borderRadius: 11,
   },
   imageStyle: {
-    width: 325, 
+    width: '100%', 
     height: 200,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -35,10 +35,11 @@ export default function Index() {
       <View>
         <Bell 
           color={'white'}
-          size={25}
+          size={26}
           style={{
-            marginLeft: 300,
-            marginTop: 30
+            marginTop: 25,
+            marginRight: 25,
+            alignSelf: 'flex-end'
           }} 
         />
       </View>

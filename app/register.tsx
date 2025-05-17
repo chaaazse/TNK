@@ -4,16 +4,18 @@
 // [TNK-6] Register Screen
 // Description: As a user, I want to register a new account.
 
-import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react'
+import { Text, View, StyleSheet, Image, TextInput } from 'react-native';
 import { useRouter } from 'expo-router'
+import { auth } from '../FirebaseConfig'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const styles = StyleSheet.create ({
     headerStyle: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 35,
-        marginTop: 50,
+        marginTop: '10%',
         marginLeft: 20,
     },
     greetingStyle: {
@@ -25,35 +27,35 @@ const styles = StyleSheet.create ({
     },
     bodyContainerStyle: {
         backgroundColor: '#F7EDE1',
-        marginTop: 20,
-        paddingBottom: 640,
+        marginTop: 15,
+        height: '100%',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
     },
     textfieldsStyle: {
         color: 'black',
-        
         marginLeft: 30,
         marginBottom: 2,
         fontWeight: 'bold',
     },
     emptyContainerStyle: {
         backgroundColor: '#D9D9D9',
-        paddingTop: 35,
+        padding: 5,
+        paddingRight: 0,
         marginLeft: 30,
         marginRight: 30,
         borderRadius: 15,
         borderColor: 'black',
         borderWidth: 1,
     },
-    loginButtonStyle: {
+    signupButtonStyle: {
         color: 'white',
         fontSize: 25,
         fontWeight: 'bold',
         backgroundColor: '#FFC200',
-        paddingTop: 10,
-        paddingBottom: 15,
-        paddingLeft: 125,
+        height: '7%',
+        textAlignVertical: 'center',
+        textAlign: 'center',
         marginTop: 30,
         marginLeft: 30,
         marginRight: 30,
@@ -65,13 +67,13 @@ const styles = StyleSheet.create ({
         justifyContent: 'center',
         marginTop: 25,
         marginLeft: 35,
-        width: '80%',
+        width: '83%',
     },
     horizontalLine: {
-        height: 1,
+        height: 1.5,
         backgroundColor: 'black',
         flex: 1,
-        marginVertical: 10,
+        marginVertical: 5,
     },
     orLoginWithtext: {
         marginHorizontal: 10,
@@ -82,8 +84,9 @@ const styles = StyleSheet.create ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        marginTop: 20,
+        marginTop: 10,
         padding: 10,
+        marginBottom: 5
     },
     buttonContainer: {
         backgroundColor: 'black',
@@ -111,7 +114,7 @@ const styles = StyleSheet.create ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40,
+        marginTop: '3%',
     },
     accountText:{
         color: 'black',
@@ -134,8 +137,24 @@ const styles = StyleSheet.create ({
 
 });
 
-
 const Register = () => {
+        const [firstName, setFirstName] = useState('');
+        const [lastName, setLastName] = useState('');
+        const [phoneNumber, setPhoneNumber] = useState('');
+        const [email, setEmail] = useState('');
+        const [password, setPassword] = useState('');
+        
+    
+        const signUp = async () => {
+            try {
+                const user = await createUserWithEmailAndPassword(auth, email, password)
+                if (user) router.replace('/(tabs)');
+            } catch (error: any) {
+                console.log(error)
+                alert('Sign in failed: ' + error.message);
+            }
+        }
+
     const router = useRouter();
     return (
         <View className="flex-1 bg-primary">
@@ -157,7 +176,9 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your first name" />
+                    </View>
 
                     <View style={styles.textfieldRowStyle}>
                         <Text style={styles.textfieldsStyle}>
@@ -168,7 +189,9 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your last name" />
+                    </View>
 
                     <View style={styles.textfieldRowStyle}>
                         <Text style={styles.textfieldsStyle}>
@@ -179,7 +202,9 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your phone number" />
+                    </View>
 
                     <View style={styles.textfieldRowStyle}>
                         <Text style={styles.textfieldsStyle}>
@@ -190,7 +215,9 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your email" value={email} onChangeText={setEmail} />
+                    </View>
 
                     <View style={styles.textfieldRowStyle}>
                         <Text style={styles.textfieldsStyle}>
@@ -201,7 +228,9 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Enter your password" value={password} onChangeText={setPassword} secureTextEntry />
+                    </View>
 
                     <View style={styles.textfieldRowStyle}>
                         <Text style={styles.textfieldsStyle}>
@@ -212,9 +241,11 @@ const Register = () => {
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}></View>
+                    <View style={styles.emptyContainerStyle}>
+                        <TextInput placeholder="Re-type your password" />
+                    </View>
 
-                    <Text onPress={() => router.push('/login')} style={styles.loginButtonStyle}>
+                    <Text onPress={() => router.push('/login')} style={styles.signupButtonStyle}>
                         Sign up
                     </Text>
 

@@ -41,7 +41,7 @@ const styles = StyleSheet.create ({
         marginLeft: 7,
         backgroundColor: '#F7EDE1',
         width: '47%',
-        height: 275,
+        height: '105%',
         borderRadius: 10,
     },
     imageStyle: {
@@ -94,8 +94,9 @@ const Status = () => {
                     color={'white'}
                     size={25}
                     style={{
-                        marginLeft: 300,
-                        marginTop: 30
+                        marginTop: 25,
+                        marginRight: 25,
+                        alignSelf: 'flex-end'
                     }} 
                 />
             </View>
