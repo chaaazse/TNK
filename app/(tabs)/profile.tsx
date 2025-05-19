@@ -9,35 +9,6 @@ import React from 'react'
 import { Bell, Settings, Star, StarHalf } from 'lucide-react-native';
 
 const styles = StyleSheet.create ({
-    row: {
-        flexDirection: 'row',
-    },
-    column: {
-        flexDirection: 'column',
-    },
-    imageStyle: {
-        width: '31%',
-        height: 128,
-        marginLeft: 10,
-    },
-    textStyle: {
-        color: 'white',
-    },
-    textHeaderStyle: {
-        color: 'white',
-        fontSize: 35,
-        fontWeight: 'bold'
-    },
-    topContentStyle: {
-        marginLeft: 15,
-    },
-    preferenceStyle: {
-        paddingTop: 7,
-        paddingBottom: 7,
-    },
-    rating: {
-        position: 'relative',
-    },
     starEmpty: {
         display: 'flex',
         flexDirection: 'row',
@@ -47,63 +18,6 @@ const styles = StyleSheet.create ({
         position: 'absolute',
         flexDirection: 'row',
     },
-    bodyContent: {
-        marginTop: 20,
-        flexDirection: 'row',
-        width: '100%',
-        height: 225,
-        justifyContent: 'space-evenly',
-    },
-    leftBodyContent: {
-        paddingLeft: 10,
-    },
-    rightBodyContent: {
-        paddingRight: 10,
-    },
-    leftBodyContentTextStyle: {
-        color: 'white',
-        padding: 7,
-        fontSize: 20,
-        fontWeight: '800',
-    },
-    rightBodyContentTextStyle: {
-        color: 'white',
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontSize: 15,
-        fontWeight: '500',
-    },
-    editBoxStyle: {
-        color: 'white',
-        fontSize: 15,
-        textAlign: 'right',
-        paddingRight: 60,
-        marginBottom: 5,
-    },
-    textBox: {
-        backgroundColor: 'gray',
-        borderRadius: 15,
-        borderWidth: 2,
-        borderColor: 'white',
-        width: 250,
-        height: 250,
-        alignSelf: 'center'
-        
-    },
-    logoutBtnContainer: {
-        marginTop: '5%',
-        marginLeft: 50,
-        marginRight: 50,
-        padding: 10,
-        alignItems: 'center',
-        borderRadius: 15,
-        backgroundColor: '#FFC200',
-    },
-    logoutTextStyle: {
-        color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold'
-    }
 });
 
 const Profile = () => {
@@ -122,16 +36,16 @@ const Profile = () => {
             </View>
             
             {/* start of top content */}
-            <View style={styles.row}>
-                <Image source={require('@/assets/images/archeologist.png')} style={styles.imageStyle}/>
-                <View style={styles.topContentStyle}>
-                    <View style={styles.column}>
-                        <Text style={styles.textHeaderStyle}>
+            <View className="flex-row justify-center">
+                <Image source={require('@/assets/images/archeologist.png')} className="w-[31%] h-[120%]"/>
+                <View className="ml-3">
+                    <View className="flex-column">
+                        <Text className="text-white text-4xl font-bold">
                             Kevin Vega
                         </Text>
                         
-                        <View style={styles.preferenceStyle}>
-                            <View style={styles.row}>
+                        <View className="py-2">
+                            <View className="flex-row">
                                 <Settings
                                     color={'white'}
                                     size={15}
@@ -140,15 +54,15 @@ const Profile = () => {
                                         alignSelf: 'center'
                                     }}
                                 />
-                                <Text style={styles.textStyle}>PREFERENCES</Text>
+                                <Text className="text-white">PREFERENCES</Text>
                             </View>
                         </View>
                         
-                        <Text style={styles.textStyle}>Member Since: 2015</Text>
+                        <Text className="text-white">Member Since: 2015</Text>
                         
-                        <View style={styles.row}>
-                            <Text style={styles.textStyle}>Reputation: </Text>
-                                <View style={styles.rating}>
+                        <View className="flex-row">
+                            <Text  className="text-white">Reputation: </Text>
+                                <View className="relative justify-center">
                                     <View style={styles.starEmpty}>
                                         { Array.from({ length: 5 }, (_, index) => (
                                             <Star key={index} fill="#7B7B7B" size={13} strokeWidth={0} />
@@ -184,39 +98,37 @@ const Profile = () => {
             {/* end of top content */}
 
             {/* start of body */}
-            <View style={styles.bodyContent}>
-                <View style={styles.leftBodyContent}>
-                    <Text style={styles.leftBodyContentTextStyle}>Email Address</Text>
-                    <Text style={styles.leftBodyContentTextStyle}>Phone Number</Text>
-                    <Text style={styles.leftBodyContentTextStyle}>Address</Text>
-                    <Text style={styles.leftBodyContentTextStyle}>Birthdate</Text>
-                    <Text style={styles.leftBodyContentTextStyle}>Gender</Text>
-                    <Text style={styles.leftBodyContentTextStyle}>Short Description</Text>
+            <View className="flex-row w-full h-[30%] mt-6 justify-evenly">
+                <View className="justify-evenly">
+                    <Text className="text-white text-2xl font-extrabold">Email Address</Text>
+                    <Text className="text-white text-2xl font-extrabold">Phone Number</Text>
+                    <Text className="text-white text-2xl font-extrabold">Address</Text>
+                    <Text className="text-white text-2xl font-extrabold">Birthdate</Text>
+                    <Text className="text-white text-2xl font-extrabold">Gender</Text>
                 </View>
 
-                <View style={styles.rightBodyContent}> 
-                    <Text style={styles.rightBodyContentTextStyle}>kevega@gbox.adnu.edu.ph</Text>
-                    <Text style={styles.rightBodyContentTextStyle}>01234567891</Text>
-                    <Text style={styles.rightBodyContentTextStyle}>Naga</Text>
-                    <Text style={styles.rightBodyContentTextStyle}>January 1, 0000</Text>
-                    <Text style={styles.rightBodyContentTextStyle}>Male</Text>
+                <View className="justify-evenly"> 
+                    <Text className="text-white text-base font-medium">kevega@gbox.adnu.edu.ph</Text>
+                    <Text className="text-white text-base font-medium">01234567891</Text>
+                    <Text className="text-white text-base font-medium">Naga</Text>
+                    <Text className="text-white text-base font-medium">January 1, 0000</Text>
+                    <Text className="text-white text-base font-medium">Male</Text>
                 </View>
             </View>
 
             <View>
-                <Text style={styles.editBoxStyle}>Edit</Text>
-                <View style={styles.textBox}>
+                <Text className="text-white text-2xl font-extrabold ml-6 mt-2">Short Description</Text>
+                <Text className="text-white text-lg self-end mr-12">Edit</Text>
+                <View className="bg-gray-500 border-white border-2 rounded-2xl w-[70%] h-[225px] self-center">
                 </View>
             </View>
             {/* end of body */}
         
-            <View style={styles.logoutBtnContainer}>
-                <Text style={styles.logoutTextStyle}>Logout</Text>
+            <View className="bg-tertiary rounded-[15px] p-3 mt-5 w-[80%] self-center">
+                <Text className="text-white font-bold text-2xl text-center">Logout</Text>
             </View>
 
         </View>
-
-       
     )
 }
 

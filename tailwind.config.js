@@ -7,9 +7,10 @@ module.exports = {
       colors: {
         primary: '#020D19',
         secondary: '#F7EDE1',
-        tertiary: '#ffc200 ',
+        tertiary: '#ffc200',
         messageBtn: '#020D19',
         impBtn: '#A25D67',
+        impMsg: '#C98633',
       }
     },
   },

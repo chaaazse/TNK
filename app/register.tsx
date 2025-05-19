@@ -5,137 +5,11 @@
 // Description: As a user, I want to register a new account.
 
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Image, TextInput } from 'react-native';
+import { Text, View, Image, TextInput } from 'react-native';
 import { useRouter } from 'expo-router'
 import { auth } from '../FirebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-const styles = StyleSheet.create ({
-    headerStyle: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 35,
-        marginTop: '10%',
-        marginLeft: 20,
-    },
-    greetingStyle: {
-        color: 'white',
-        fontWeight: 'bold',
-        marginTop: 2,
-        marginLeft: 20,
-        fontSize: 15,
-    },
-    bodyContainerStyle: {
-        backgroundColor: '#F7EDE1',
-        marginTop: 15,
-        height: '100%',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-    },
-    textfieldsStyle: {
-        color: 'black',
-        marginLeft: 30,
-        marginBottom: 2,
-        fontWeight: 'bold',
-    },
-    emptyContainerStyle: {
-        backgroundColor: '#D9D9D9',
-        padding: 5,
-        paddingRight: 0,
-        marginLeft: 30,
-        marginRight: 30,
-        borderRadius: 15,
-        borderColor: 'black',
-        borderWidth: 1,
-    },
-    signupButtonStyle: {
-        color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold',
-        backgroundColor: '#FFC200',
-        height: '7%',
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        marginTop: 30,
-        marginLeft: 30,
-        marginRight: 30,
-        borderRadius: 15,
-    },
-    flexedLineContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 25,
-        marginLeft: 35,
-        width: '83%',
-    },
-    horizontalLine: {
-        height: 1.5,
-        backgroundColor: 'black',
-        flex: 1,
-        marginVertical: 5,
-    },
-    orLoginWithtext: {
-        marginHorizontal: 10,
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    buttonAreaContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        marginTop: 10,
-        padding: 10,
-        marginBottom: 5
-    },
-    buttonContainer: {
-        backgroundColor: 'black',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 30,
-        paddingRight: 30,
-        borderRadius: 15,
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 16,
-        paddingLeft: 10,
-    },
-    googleIcon: {
-        width: 20,
-        height: 20,
-    },
-    buttonRowContainer: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    accountRemContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: '3%',
-    },
-    accountText:{
-        color: 'black',
-        fontWeight: 'bold',
-        
-    },
-    registerText: {
-        color: '#C98633',
-        fontWeight: 'bold',
-        paddingLeft: 5,
-    },
-    textfieldRowStyle: {
-        flexDirection: 'row',
-        marginTop: 10,
-    },
-    asteriskText: {
-        color: 'red',
-        paddingLeft: 2
-    }
-
-});
 
 const Register = () => {
         const [firstName, setFirstName] = useState('');
@@ -158,131 +32,131 @@ const Register = () => {
     const router = useRouter();
     return (
         <View className="flex-1 bg-primary">
-            <Text style={styles.headerStyle}>      
+            <Text className="text-white font-bold text-4xl mt-[10%] ml-5">      
                 Get Started
             </Text>
-            <Text style={styles.greetingStyle}>      
+            <Text className="text-white font-bold mt-1 ml-5 text-base">      
                 Welcome to TNK - Let's create your account!
             </Text>
 
-            <View style={styles.bodyContainerStyle}>
+            <View className="bg-secondary h-full mt-2 rounded-tl-[10px] rounded-tr-[10px]">
                 <View>
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             First Name
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Enter your first name" />
                     </View>
 
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             Last Name
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Enter your last name" />
                     </View>
 
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             Phone Number
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Enter your phone number" />
                     </View>
 
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             Email
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Enter your email" value={email} onChangeText={setEmail} />
                     </View>
 
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             Password
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Enter your password" value={password} onChangeText={setPassword} secureTextEntry />
                     </View>
 
-                    <View style={styles.textfieldRowStyle}>
-                        <Text style={styles.textfieldsStyle}>
+                    <View className="flex-row mt-3">
+                        <Text className="text-black font-bold ml-9">
                             Confirm Password
                         </Text>
-                        <Text style={styles.asteriskText}>
+                        <Text className= "color-red-700 ml-1">
                             *
                         </Text>
                     </View>
 
-                    <View style={styles.emptyContainerStyle}>
+                    <View className="bg-gray-300 border rounded-2xl mx-8 px-2">
                         <TextInput placeholder="Re-type your password" />
                     </View>
 
-                    <Text onPress={() => router.push('/login')} style={styles.signupButtonStyle}>
+                    <Text onPress={() => router.push('/login')} className="text-white text-2xl font-bold bg-tertiary h-[7%] rounded-2xl align-middle text-center mx-10 mt-7">
                         Sign up
                     </Text>
 
-                    <View style={styles.flexedLineContainer}>
-                        <View style={styles.horizontalLine}></View>
+                    <View className="flex-row mt-5 self-center w-[83%]">
+                        <View className= "h-[9%] bg-black flex-1 self-center"></View>
 
-                        <Text style={styles.orLoginWithtext}>
+                        <Text className= "text-base font-bold mx-[3%]">
                             Or sign up with
                         </Text>
 
-                        <View style={styles.horizontalLine}></View>
+                        <View className= "h-[9%] bg-black flex-1 self-center"></View>
                     </View>
 
-                    <View style={styles.buttonAreaContainer}> 
-                        <View style={styles.buttonContainer}>
-                            <View style={styles.buttonRowContainer}>
-                                <Image source={require('@/assets/images/google-symbol.png')} style={styles.googleIcon}/>
-                                <Text style={styles.buttonText}>
+                    <View className= "flex-row justify-evenly mt-6 p-3 mb-5"> 
+                        <View className= "bg-black py-3 px-5 rounded-[15px]">
+                            <View className= "flex-row justify-evenly">
+                                <Image source={require('@/assets/images/google-symbol.png')} className="w-[20%] h-full"/>
+                                <Text className= "text-white font-bold text-base">
                                     Google
                                 </Text>
                             </View>
                         </View>
-                        <View style={styles.buttonContainer}>
-                            <View style={styles.buttonRowContainer}>
-                                <Image source={require('@/assets/images/facebook.png')} style={styles.googleIcon}/>
-                                <Text style={styles.buttonText}>
+                        <View className="bg-black py-3 px-5 rounded-[15px]">
+                            <View className="flex-row justify-evenly">
+                                <Image source={require('@/assets/images/facebook.png')} className="w-[20%] h-full"/>
+                                <Text className= "text-white font-bold text-base">
                                     Facebook
                                 </Text>
                             </View>
                         </View>
                     </View>
 
-                    <View style={styles.accountRemContainer}>
-                        <Text style={styles.accountText}>
+                    <View className= "flex-row align-middle justify-center">
+                        <Text className= "color-black font-bold">
                             Already have an account?
                         </Text>
-                        <Text onPress={() => router.push('/login')} style={styles.registerText}>
+                        <Text onPress={() => router.push('/login')} className= "color-impMsg font-bold pl-1">
                             Login
                         </Text>
                     </View>
