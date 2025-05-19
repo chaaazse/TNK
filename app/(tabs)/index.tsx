@@ -5,22 +5,46 @@
 // Description: As a user, I want to be able to choose to view Housekeeper candidates and/or Household offers.
 
 import React from 'react';
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TouchableOpacity, StyleSheet} from "react-native";
 import { Bell, MoveRight } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
+const styles = StyleSheet.create ({
+  container: {
+    paddingBottom: 10,
+    backgroundColor: '#F7EDE1',
+    marginLeft: 20,
+    width: '90.3%',
+    borderRadius: 11,
+  },
+  imageStyle: {
+    width: '100%', 
+    height: 200,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderColor: 'black',
+    borderWidth: 1
+
+  },
+  rightSideText: {
+    fontWeight: 'bold',
+  }
+});
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View className="flex-1 bg-primary">
       <View>
         <Bell
           color={'white'}
-          size={26}
+          size={25}
           style={{
-            marginTop: 25,
-            marginRight: 25,
-            alignSelf: 'flex-end'
-          }}
+
+            marginLeft: '85%',
+            marginTop: 30
+          }} 
+
         />
       </View>
       <View>
@@ -31,7 +55,9 @@ export default function Index() {
       <View>
         <Text className="text-2xl text-white ml-5 mt-5">Housekeepers</Text>
         <View className="bg-secondary w-[90%] h-[55%] rounded-[11px] mx-5">
-          <Image source={require('@/assets/images/housekeeper_image.png')} className="h-[90%] w-full border rounded-tl-[10px] rounded-tr-[10px]" />
+        <TouchableOpacity onPress={() => router.push('/housekeepers/HousekeepersDetails')}>
+          <Image source={require('@/assets/images/housekeeper_image.png')} className="h-[90%] w-full border rounded-tl-[10px] rounded-tr-[10px]"/>
+
           <View className="flex items-end">
             <Text className="font-bold pt-1 pr-2">
               View Candidates
@@ -46,14 +72,16 @@ export default function Index() {
               </View>
             </Text>
           </View>
-
+          </TouchableOpacity>   
         </View>
       </View>
 
       <View>
-        <Text className="text-2xl text-white ml-5 -mt-40">Housekeepers</Text>
+
+        <Text className="text-2xl text-white ml-5 mt-3">Households</Text>
         <View className="bg-secondary w-[90%] h-[65%] rounded-[11px] mx-5">
-          <Image source={require('@/assets/images/household_image.png')} className="h-[90%] w-full border rounded-tl-[10px] rounded-tr-[10px]" />
+        <TouchableOpacity onPress={() => router.push('/households/HouseholdDetails')}>
+          <Image source={require('@/assets/images/household_image.png')} className="h-[90%] w-full border rounded-tl-[10px] rounded-tr-[10px]"/>
           <View className="flex items-end">
             <Text className="font-bold pt-1 pr-2">
               View Candidates
@@ -69,6 +97,7 @@ export default function Index() {
             </Text>
           </View>
 
+          </TouchableOpacity>  
         </View>
       </View>
 
