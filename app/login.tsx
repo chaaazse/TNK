@@ -1,9 +1,16 @@
+// Authored by: Jamarcus JanGavril C. Mariano
+// Company: Schlaf Shön
+// Project: Tabangi Na Ko
+// [TNK-5] Login Screen
+// Description: As a user, I want to login to an existing account.
+
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Alert, Dimensions, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { auth } from '../FirebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { MaterialIcons } from '@expo/vector-icons';
+
 
 const { width, height } = Dimensions.get('window');
 

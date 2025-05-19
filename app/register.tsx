@@ -1,3 +1,9 @@
+// Authored by: Jamarcus JanGavril C. Mariano
+// Company: Schlaf Shön
+// Project: Tabangi Na Ko
+// [TNK-6] Register Screen
+// Description: As a user, I want to register a new account.
+
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Alert, Dimensions, ScrollView, Image } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -119,6 +125,7 @@ const Register = () => {
                                 autoCapitalize="none"
                             />
                         </View>
+
 
                         <View style={styles.inputContainer}>
                             <Text style={styles.label}>Password <Text style={styles.required}>*</Text></Text>
